@@ -3,8 +3,8 @@ import json
 import requests
 
 dreampay = boto3.client('waf',
-	aws_access_key_id='AKIA6NIPWQYHUNP6WWQ6',
-    aws_secret_access_key='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')
+	aws_access_key_id='******',
+    aws_secret_access_key='******')
 
 def webacl():
 	s = input("Enter Web ACL Name: ")
