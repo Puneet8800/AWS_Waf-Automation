@@ -2,24 +2,24 @@ import boto3
 import json
 import requests
 
-dreampay = boto3.client('waf',
+waf = boto3.client('waf',
 	aws_access_key_id='******',
     aws_secret_access_key='******')
 
 
 def sqlrule():
 	s = input("Enter Sql Rule Name: ")
-	response = dreampay.get_change_token()
-	response1 = dreampay.create_rule(Name=s,MetricName=s,ChangeToken=response['ChangeToken'])
-	response2 = dreampay.list_rules(Limit=50,)
+	response = waf.get_change_token()
+	response1 = waf.create_rule(Name=s,MetricName=s,ChangeToken=response['ChangeToken'])
+	response2 = waf.list_rules(Limit=50,)
 
 	for i in response2['Rules']:
 		if i['Name'] == s:
 			match_id = i['RuleId']
 			print(match_id)
 
-	ct = dreampay.get_change_token()
-	sql = dreampay.update_rule(
+	ct = waf.get_change_token()
+	sql = waf.update_rule(
     RuleId=match_id,
     ChangeToken=ct['ChangeToken'],
     Updates=[
@@ -36,17 +36,17 @@ def sqlrule():
 
 def xssrule():
 	s = input("Enter XSS Rule Name: ")
-	response = dreampay.get_change_token()
-	response1 = dreampay.create_rule(Name=s,MetricName=s,ChangeToken=response['ChangeToken'])
-	response2 = dreampay.list_rules(Limit=50,)
+	response = waf.get_change_token()
+	response1 = waf.create_rule(Name=s,MetricName=s,ChangeToken=response['ChangeToken'])
+	response2 = waf.list_rules(Limit=50,)
 
 	for i in response2['Rules']:
 		if i['Name'] == s:
 			match_id = i['RuleId']
 			print(match_id)
 
-	ct = dreampay.get_change_token()
-	sql = dreampay.update_rule(
+	ct = waf.get_change_token()
+	sql = waf.update_rule(
     RuleId=match_id,
     ChangeToken=ct['ChangeToken'],
     Updates=[
@@ -63,17 +63,17 @@ def xssrule():
 
 def sqlsleep():
 	s = input("Enter SQL Sleep Rule Name: ")
-	response = dreampay.get_change_token()
-	response1 = dreampay.create_rule(Name=s,MetricName=s,ChangeToken=response['ChangeToken'])
-	response2 = dreampay.list_rules(Limit=50,)
+	response = waf.get_change_token()
+	response1 = waf.create_rule(Name=s,MetricName=s,ChangeToken=response['ChangeToken'])
+	response2 = waf.list_rules(Limit=50,)
 
 	for i in response2['Rules']:
 		if i['Name'] == s:
 			match_id = i['RuleId']
 			print(match_id)
 
-	ct = dreampay.get_change_token()
-	sql = dreampay.update_rule(
+	ct = waf.get_change_token()
+	sql = waf.update_rule(
     RuleId=match_id,
     ChangeToken=ct['ChangeToken'],
     Updates=[
@@ -90,17 +90,17 @@ def sqlsleep():
 
 def sqlnull():
 	s = input("Enter SQL Null Rule Name: ")
-	response = dreampay.get_change_token()
-	response1 = dreampay.create_rule(Name=s,MetricName=s,ChangeToken=response['ChangeToken'])
-	response2 = dreampay.list_rules(Limit=50,)
+	response = waf.get_change_token()
+	response1 = waf.create_rule(Name=s,MetricName=s,ChangeToken=response['ChangeToken'])
+	response2 = waf.list_rules(Limit=50,)
 
 	for i in response2['Rules']:
 		if i['Name'] == s:
 			match_id = i['RuleId']
 			print(match_id)
 
-	ct = dreampay.get_change_token()
-	sql = dreampay.update_rule(
+	ct = waf.get_change_token()
+	sql = waf.update_rule(
     RuleId=match_id,
     ChangeToken=ct['ChangeToken'],
     Updates=[
@@ -117,17 +117,17 @@ def sqlnull():
 
 def xforwarded():
 	s = input("Enter xforwarded Rule Name: ")
-	response = dreampay.get_change_token()
-	response1 = dreampay.create_rule(Name=s,MetricName=s,ChangeToken=response['ChangeToken'])
-	response2 = dreampay.list_rules(Limit=50,)
+	response = waf.get_change_token()
+	response1 = waf.create_rule(Name=s,MetricName=s,ChangeToken=response['ChangeToken'])
+	response2 = waf.list_rules(Limit=50,)
 
 	for i in response2['Rules']:
 		if i['Name'] == s:
 			match_id = i['RuleId']
 			print(match_id)
 
-	ct = dreampay.get_change_token()
-	sql = dreampay.update_rule(
+	ct = waf.get_change_token()
+	sql = waf.update_rule(
     RuleId=match_id,
     ChangeToken=ct['ChangeToken'],
     Updates=[
@@ -144,17 +144,17 @@ def xforwarded():
 
 def Geo():
 	s = input("Enter Geo Rule Name: ")
-	response = dreampay.get_change_token()
-	response1 = dreampay.create_rule(Name=s,MetricName=s,ChangeToken=response['ChangeToken'])
-	response2 = dreampay.list_rules(Limit=50,)
+	response = waf.get_change_token()
+	response1 = waf.create_rule(Name=s,MetricName=s,ChangeToken=response['ChangeToken'])
+	response2 = waf.list_rules(Limit=50,)
 
 	for i in response2['Rules']:
 		if i['Name'] == s:
 			match_id = i['RuleId']
 			print(match_id)
 
-	ct = dreampay.get_change_token()
-	sql = dreampay.update_rule(
+	ct = waf.get_change_token()
+	sql = waf.update_rule(
     RuleId=match_id,
     ChangeToken=ct['ChangeToken'],
     Updates=[
@@ -171,17 +171,17 @@ def Geo():
 
 def Ip_Match():
 	s = input("Enter IP Match Rule Name: ")
-	response = dreampay.get_change_token()
-	response1 = dreampay.create_rule(Name=s,MetricName=s,ChangeToken=response['ChangeToken'])
-	response2 = dreampay.list_rules(Limit=50,)
+	response = waf.get_change_token()
+	response1 = waf.create_rule(Name=s,MetricName=s,ChangeToken=response['ChangeToken'])
+	response2 = waf.list_rules(Limit=50,)
 
 	for i in response2['Rules']:
 		if i['Name'] == s:
 			match_id = i['RuleId']
 			print(match_id)
 
-	ct = dreampay.get_change_token()
-	sql = dreampay.update_rule(
+	ct = waf.get_change_token()
+	sql = waf.update_rule(
     RuleId=match_id,
     ChangeToken=ct['ChangeToken'],
     Updates=[
