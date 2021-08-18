@@ -16,5 +16,5 @@ for page in cf_page_iterator:
     if page['DistributionList']['Quantity'] > 0:
         for i in page['DistributionList']['Items']:
             if i['ARN'] not in shield_protected_cf_list:
-                print(i['ARN'],i['Id'],)
+                print(i['ARN'],i['Id'])
 
